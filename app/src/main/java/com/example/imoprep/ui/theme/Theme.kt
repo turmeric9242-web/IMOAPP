@@ -1,44 +1,35 @@
 package com.example.imoprep.ui.theme
 
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
-
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+// The practice site is light-only, so the app is too. Colors are fixed (not wallpaper-based)
+// so the look matches the website.
+private val AppColors = lightColorScheme(
+    primary = Brand,
+    onPrimary = Color.White,
+    primaryContainer = BrandSoft,
+    onPrimaryContainer = BrandDark,
+    secondary = Violet,
+    onSecondary = Color.White,
+    tertiary = Accent,
+    onTertiary = Color.White,
+    background = PageBg,
+    onBackground = Ink,
+    surface = CardWhite,
+    onSurface = Ink,
+    onSurfaceVariant = InkSoft,
+    outlineVariant = LineGrey,
+    error = Danger,
+    onError = Color.White,
 )
 
 @Composable
-fun ImoPrepTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
-) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
+fun ImoPrepTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = AppColors,
         typography = Typography,
         content = content
     )

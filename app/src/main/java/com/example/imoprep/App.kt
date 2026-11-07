@@ -1,6 +1,7 @@
 package com.example.imoprep
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -22,9 +24,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.imoprep.ui.theme.Brand
+import com.example.imoprep.ui.theme.BrandDark
+import com.example.imoprep.ui.theme.Violet
 
 sealed interface Screen {
     data object Home : Screen
@@ -83,22 +91,20 @@ fun ImoPrepApp() {
                     questions = questions,
                     onPick = { screen = Screen.Chapter(it) },
                 )
-                is Screen.Chapter -> QuizRunner(
+                is Screen.Chapter -> ChapterQuiz(
                     title = s.name,
                     questions = questions.filter { it.chapter == s.name },
-                    timeLimitSeconds = null,
                     onBack = { screen = Screen.ChapterPick },
                     onFinished = { score, total ->
                         ProgressStore.record(context, "chapter:${s.name}", score, total)
                         screen = Screen.ChapterPick
                     },
                 )
-                Screen.Mock -> QuizRunner(
-                    title = "Full Mock Test",
+                Screen.Mock -> MockTest(
                     questions = questions,
                     // Same pace as the real paper: 60 minutes for 50 questions.
                     timeLimitSeconds = questions.size * 72,
-                    onBack = { screen = Screen.Home },
+                    onExit = { screen = Screen.Home },
                     onFinished = { score, total ->
                         ProgressStore.record(context, "mock", score, total)
                         screen = Screen.Progress
@@ -129,18 +135,36 @@ fun HomeScreen(onNavigate: (Screen) -> Unit) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        Text(
-            "IMO Class 7 Prep",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.ExtraBold,
-        )
-        Text("Self-study practice for the SOF International Mathematics Olympiad. Unofficial helper.")
+        // Gradient hero, like the website's header
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(24.dp))
+                .background(Brush.linearGradient(listOf(BrandDark, Brand, Violet)))
+                .padding(24.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Text(
+                "IMO Class 7 Prep",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.White,
+            )
+            Text(
+                "Self-study practice for the SOF International Mathematics Olympiad. Unofficial helper.",
+                color = Color.White,
+            )
+            Text(
+                "50 questions · 60 marks · 1 hour",
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+            )
+        }
 
         Card(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text("Exam pattern", fontWeight = FontWeight.Bold)
                 Text("Logical Reasoning (15) · Mathematical Reasoning (20) · Everyday Mathematics (10) · Achievers (5)")
-                Text("50 questions, 60 marks, 1 hour")
             }
         }
 
@@ -156,7 +180,12 @@ fun HomeScreen(onNavigate: (Screen) -> Unit) {
 fun MenuCard(title: String, subtitle: String, onClick: () -> Unit) {
     Card(onClick = onClick, modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            Text(
+                title,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+            )
             Text(subtitle, style = MaterialTheme.typography.bodyMedium)
         }
     }
