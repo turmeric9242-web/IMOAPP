@@ -1,0 +1,66 @@
+[
+  {
+    "id": "SP26-Q1",
+    "section": "Logical Reasoning",
+    "chapter": "Coding-Decoding",
+    "text": "In a certain code language, if 'ELECTIONS' is written as COCFTGRLV, then how will 'CANDIDATE' be written in the same code language?",
+    "options": ["HRDBIGLDA", "EDPGIFDVH", "ADLGIBDRH", "HVDFIGPDE"],
+    "answer": "C",
+    "explanation": "Each letter shifts by -2, +3, -2, +3, 0 and then the pattern repeats. Applied to CANDIDATE this gives ADLGIBDRH."
+  },
+  {
+    "id": "SP26-Q5",
+    "section": "Mathematical Reasoning",
+    "chapter": "Integers",
+    "text": "Compare and fill the box using >, < or =.\n\n1507 + 1719 - 2305  [ ]  806 - 967 + 1103",
+    "options": [">", "<", "=", "Can't be determined"],
+    "answer": "B",
+    "explanation": "1507 + 1719 - 2305 = 921 and 806 - 967 + 1103 = 942. Since 921 is less than 942, the answer is <."
+  },
+  {
+    "id": "SP26-Q7",
+    "section": "Everyday Mathematics",
+    "chapter": "Fractions and Decimals",
+    "text": "Raghav had 147 old stamps. He lost 3/7 of the stamps and gave 2/7 of the stamps to his brother. How many stamps are left with him now?",
+    "options": ["42", "49", "52", "59"],
+    "answer": "A",
+    "explanation": "Lost: 3/7 of 147 = 63. Given away: 2/7 of 147 = 42. Left: 147 - 63 - 42 = 42."
+  },
+  {
+    "id": "SP26-Q8",
+    "section": "Everyday Mathematics",
+    "chapter": "Simple Equations",
+    "text": "Manvi says that she got 16 more marks than 4 times the number of marks scored by Aashi. Form an equation which gives the marks scored by Aashi, if Manvi scored 72 marks.",
+    "options": ["16x + 4 = 72", "16 + 4x = 72", "16x + 72 = 4", "72 + 4x = 16"],
+    "answer": "B",
+    "explanation": "Let Aashi's marks be x. Manvi's marks are 4x + 16, so 16 + 4x = 72."
+  },
+  {
+    "id": "SP26-Q9",
+    "section": "Achievers Section",
+    "chapter": "Achievers Section",
+    "text": "Read the following statements carefully and select the correct option.\n\nStatement-1: If Rs 880 has to be divided among three daughters of Shyam such that Sunita receives 3/7th of what Rekha and Jyoti together receive, then Sunita's share is Rs 264.\n\nStatement-2: If the mean of 8, 9, x, 10, 5 is 15, then the value of x is 43.",
+    "options": [
+      "Both Statement-1 and Statement-2 are true.",
+      "Both Statement-1 and Statement-2 are false.",
+      "Statement-1 is true but Statement-2 is false.",
+      "Statement-1 is false but Statement-2 is true."
+    ],
+    "answer": "A",
+    "explanation": "Statement 1: Sunita = 264 and Rekha plus Jyoti = 616, and 3/7 of 616 is 264, so it is true. Statement 2: (8 + 9 + x + 10 + 5) / 5 = 15 gives x = 43, so it is true."
+  },
+  {
+    "id": "SP26-Q10",
+    "section": "Achievers Section",
+    "chapter": "Achievers Section",
+    "text": "Match the following.\n\nList-I\n(P) Total number of odd multiples of 3 from 1 to 35 is\n(Q) In Fibonacci: Sum of 5th and 6th term is\n(R) Centre of a 3 x 3 magic square is\n(S) If ABC = 182, then sum of digits of A, B, C is\n\nList-II\n1. 21    2. 11    3. 6    4. 5",
+    "options": [
+      "P-1, Q-3, R-4, S-2",
+      "P-4, Q-1, R-3, S-2",
+      "P-3, Q-1, R-2, S-4",
+      "P-3, Q-1, R-4, S-2"
+    ],
+    "answer": "D",
+    "explanation": "P: the odd multiples of 3 up to 35 are 3, 9, 15, 21, 27 and 33, which is 6 (item 3). R: the centre of a 3 x 3 magic square is 5 (item 4). S: the digits of 182 add up to 1 + 8 + 2 = 11 (item 2). Q matches item 1 (21) according to the answer key."
+  }
+]
