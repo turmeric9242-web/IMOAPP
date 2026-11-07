@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Perfectly centered diagonal gradient: Deep Royal Blue at Top-Left to Metallic Gold at Bottom-Right -->
+    <linearGradient id="cornerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0047AB" />
+      <stop offset="30%" stop-color="#1565C0" />
+      <stop offset="70%" stop-color="#F1C40F" />
+      <stop offset="100%" stop-color="#E59866" />
+    </linearGradient>
+  </defs>
+
+  <!-- Solid white base -->
+  <rect width="512" height="512" fill="#FFFFFF" />
+
+  <!-- Perfectly centered squircle border: centered at (256, 256) -->
+  <rect 
+    x="36" 
+    y="36" 
+    width="440" 
+    height="440" 
+    rx="100" 
+    ry="100" 
+    fill="#FFFFFF" 
+    stroke="url(#cornerGradient)" 
+    stroke-width="24" />
+
+  <!-- Centered typography with precise glyph geometry centering -->
+  <!-- 'I' width is narrow, 'M' is wide, 'O' is round: standard center anchor with cap-height adjustment -->
+  <g transform="translate(256, 256)">
+    <text 
+      text-anchor="middle" 
+      dominant-baseline="central" 
+      y="-4"
+      font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+      font-size="145" 
+      font-weight="900" 
+      letter-spacing="2" 
+      fill="#0E5CAD">IMO</text>
+  </g>
+</svg>
